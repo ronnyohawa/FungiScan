@@ -15,7 +15,7 @@ st.write("""The leaf disease detection model is built using deep learning techni
 
 st.write("Please input only leaf Images of Apple, Cherry, Corn, Grape, Peach, Pepper, Potato, Strawberry, and Tomato. Otherwise, the model will not work perfectly.")
 
-model = keras.models.load_model('Training/model/Leaf Deases(96,88).h5')
+model = keras.models.load_model('Training/model/Leaf_Diseases.h5')
 
 
 uploaded_file = st.file_uploader("Upload an image")
