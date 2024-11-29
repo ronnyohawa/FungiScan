@@ -2,6 +2,7 @@ import streamlit as st
 import cv2 as cv
 import numpy as np
 import keras
+import os
 
 
 label_name = ['Apple scab','Apple Black rot', 'Apple Cedar apple rust', 'Apple healthy', 'Cherry Powdery mildew',
@@ -15,8 +16,10 @@ st.write("""The leaf disease detection model is built using deep learning techni
 
 st.write("Please input only leaf Images of Apple, Cherry, Corn, Grape, Peach, Pepper, Potato, Strawberry, and Tomato. Otherwise, the model will not work perfectly.")
 
-model = keras.models.load_model('/Training/model/Leaf_Deases.h5')
-
+if os.path.exists('Training/model/Leaf_Deases.h5'):
+    model = keras.models.load_model('Training/model/Leaf_Deases.h5')
+else:
+    st.error("Model file not found.")
 
 uploaded_file = st.file_uploader("Upload an image")
 if uploaded_file is not None:
